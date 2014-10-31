@@ -18,9 +18,21 @@
 }
 
 /* add some halloween glowing */
-.halloween-ghost * {
-  animation: halloweenTextColor 500ms ease-in 9s 2;
-  -webkit-animation: halloweenTextColor 500ms ease-in 9s 2;
+.halloween-ghost:after {
+  content: "";
+  z-index: 888888;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #FF9100;
+  display: block;
+  overflow: hidden;
+  height: 0;
+
+  animation: halloweenOverlayGlowing 500ms ease-in 9s 2;
+  -webkit-animation: halloweenOverlayGlowing 500ms ease-in 9s 2;
 }
 
 @keyframes halloweenGhostHor {
@@ -63,26 +75,22 @@
     transform: scaleX(0.5) scaleY(0.5);
   }
 }
-@keyframes halloweenTextColor {
+@keyframes halloweenOverlayGlowing {
   0% {
-    color: #111;
-    text-shadow: none;
+    height: auto;
+    opacity: .1;
   }
   25% {
-    color: #FF9100;
-    text-shadow: 1px 1px #000;
+    opacity: .8;
   }
   55% {
-    color: #111;
-    text-shadow: none;
+    opacity: .4;
   }
   70% {
-    color: #FF9100;
-    text-shadow: 1px 1px #000;
+    opacity: .7;
   }
   100% {
-    color: #111;
-    text-shadow: none;
+    height: 0;
   }
 }
 
@@ -126,25 +134,21 @@
     -webkit-transform: scaleX(0.5) scaleY(0.5);
   }
 }
-@-webkit-keyframes halloweenTextColor {
+@-webkit-keyframes halloweenOverlayGlowing {
   0% {
-    color: #111;
-    text-shadow: none;
+    height: auto;
+    opacity: .1;
   }
   25% {
-    color: #FF9100;
-    text-shadow: 1px 1px #000;
+    opacity: .8;
   }
   55% {
-    color: #111;
-    text-shadow: none;
+    opacity: .4;
   }
   70% {
-    color: #FF9100;
-    text-shadow: 1px 1px #000;
+    opacity: .7;
   }
   100% {
-    color: #111;
-    text-shadow: none;
+    height: 0;
   }
 }
